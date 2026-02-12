@@ -8,25 +8,25 @@ const internalProducts = [
     title: "Apichain",
     descKey: "ventures.products.apichain",
     isOpen: true,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200"
+    image: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
     title: "Ignis AI",
     descKey: "ventures.products.ignisAi",
     isOpen: true,
-    image: "https://images.unsplash.com/photo-1542350327-446d6ca1608e?auto=format&fit=crop&q=80&w=1200"
+    image: "https://images.pexels.com/photos/51951/forest-fire-fire-smoke-conservation-51951.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
     title: "Deskpet",
     descKey: "ventures.products.deskpet",
     isOpen: false,
-    image: "https://images.unsplash.com/photo-1527433270417-66d3b3d4775d?auto=format&fit=crop&q=80&w=1200"
+    image: "https://images.pexels.com/photos/5468396/pexels-photo-5468396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
     title: "Mailelm",
     descKey: "ventures.products.mailelm",
     isOpen: false,
-    image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1200"
+    image: "https://images.pexels.com/photos/1591062/pexels-photo-1591062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   }
 ];
 
