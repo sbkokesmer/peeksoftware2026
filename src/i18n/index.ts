@@ -16,12 +16,13 @@ i18n
       de: { translation: de },
       nl: { translation: nl }
     },
+    lng: 'en',
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       caches: ['localStorage']
     }
   });
