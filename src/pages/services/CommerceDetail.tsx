@@ -122,9 +122,11 @@ export const CommerceDetail = () => {
           {t('comDetail.ctaTitle1')} <br />
           <span className="opacity-20 italic font-light">{t('comDetail.ctaTitle2')}</span>
         </h2>
-        <button className="bg-black text-white px-12 py-6 text-sm font-bold tracking-widest uppercase hover:scale-105 transition-transform">
-          {t('comDetail.ctaButton')}
-        </button>
+        <a href="mailto:info@peekdev.com">
+          <button className="bg-black text-white px-12 py-6 text-sm font-bold tracking-widest uppercase hover:scale-105 transition-transform">
+            {t('comDetail.ctaButton')}
+          </button>
+        </a>
       </section>
     </div>
   );

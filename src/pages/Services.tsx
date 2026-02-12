@@ -449,11 +449,11 @@ export const Services = () => {
             {t('servicesPage.ctaTitle1')} <br />
             <span className="italic font-light opacity-40">{t('servicesPage.ctaTitle2')}</span>
           </h2>
-          <Link to="/contact">
+          <a href="mailto:info@peekdev.com">
             <button className="bg-foreground text-background px-16 py-8 text-lg font-bold tracking-widest uppercase hover:scale-105 transition-transform">
               {t('servicesPage.ctaButton')}
             </button>
-          </Link>
+          </a>
         </div>
       </section>
     </div>

@@ -5,7 +5,7 @@ const nl = {
     work: "Werk",
     ventures: "Ventures",
     about: "Over ons",
-    startProject: "START EEN PROJECT"
+    startProject: "PARTNERSCHAP STARTEN"
   },
   hero: {
     badge: "Digitale Excellentie \u2022 Wereldwijde Impact",

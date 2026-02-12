@@ -5,7 +5,7 @@ const en = {
     work: "Work",
     ventures: "Ventures",
     about: "About",
-    startProject: "START A PROJECT"
+    startProject: "START PARTNERSHIP"
   },
   hero: {
     badge: "Digital Excellence \u2022 Global Impact",

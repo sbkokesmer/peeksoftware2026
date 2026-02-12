@@ -122,9 +122,11 @@ export const MobileDetail = () => {
           {t('mobDetail.ctaTitle1')} <br />
           <span className="opacity-20 italic font-light">{t('mobDetail.ctaTitle2')}</span>
         </h2>
-        <button className="bg-white text-black px-12 py-6 text-sm font-bold tracking-widest uppercase hover:invert transition-all">
-          {t('mobDetail.ctaButton')}
-        </button>
+        <a href="mailto:info@peekdev.com">
+          <button className="bg-white text-black px-12 py-6 text-sm font-bold tracking-widest uppercase hover:invert transition-all">
+            {t('mobDetail.ctaButton')}
+          </button>
+        </a>
       </section>
     </div>
   );

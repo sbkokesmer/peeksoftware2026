@@ -124,9 +124,11 @@ export const Work = () => {
           <p className="text-black/60 mb-10 max-w-lg mx-auto">
             {t('work.moreDesc')}
           </p>
-          <button className="px-12 py-4 bg-black text-white text-sm font-bold tracking-widest uppercase hover:bg-black/90 transition-colors">
-            {t('work.contactMore')}
-          </button>
+          <a href="mailto:info@peekdev.com">
+            <button className="px-12 py-4 bg-black text-white text-sm font-bold tracking-widest uppercase hover:bg-black/90 transition-colors">
+              {t('work.contactMore')}
+            </button>
+          </a>
         </motion.div>
       </div>
     </div>

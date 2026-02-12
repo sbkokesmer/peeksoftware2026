@@ -123,9 +123,11 @@ export const IntelligenceDetail = () => {
           {t('intDetail.ctaTitle1')} <br />
           <span className="text-emerald-500 italic font-light">{t('intDetail.ctaTitle2')}</span>
         </h2>
-        <button className="bg-emerald-500 text-black px-12 py-6 text-sm font-bold tracking-widest uppercase hover:bg-white transition-all">
-          {t('intDetail.ctaButton')}
-        </button>
+        <a href="mailto:info@peekdev.com">
+          <button className="bg-emerald-500 text-black px-12 py-6 text-sm font-bold tracking-widest uppercase hover:bg-white transition-all">
+            {t('intDetail.ctaButton')}
+          </button>
+        </a>
       </section>
     </div>
   );

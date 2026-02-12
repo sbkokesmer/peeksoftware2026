@@ -5,7 +5,7 @@ const tr = {
     work: "Projeler",
     ventures: "Girisimler",
     about: "Hakkimizda",
-    startProject: "PROJE BASLAT"
+    startProject: "ORTAKLIĞI BAŞLAT"
   },
   hero: {
     badge: "Dijital M\u00FCkemmellik \u2022 K\u00FCresel Etki",

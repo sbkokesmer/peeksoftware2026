@@ -65,17 +65,19 @@ export const Navbar = () => {
             </Link>
           ))}
           <LanguageSwitcher isDark={isDarkPage} />
-          <Button
-            variant="default"
-            className={cn(
-              "rounded-none px-8 transition-colors",
-              isDarkPage
-                ? "bg-white text-black hover:bg-white/90"
-                : "bg-black text-white hover:bg-black/90"
-            )}
-          >
-            {t('nav.startProject')}
-          </Button>
+          <a href="mailto:info@peekdev.com">
+            <Button
+              variant="default"
+              className={cn(
+                "rounded-none px-8 transition-colors",
+                isDarkPage
+                  ? "bg-white text-black hover:bg-white/90"
+                  : "bg-black text-white hover:bg-black/90"
+              )}
+            >
+              {t('nav.startProject')}
+            </Button>
+          </a>
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
