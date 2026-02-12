@@ -1,56 +1,68 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const disciplines = [
-  {
-    id: "01",
-    slug: "architectural-engineering",
-    title: "Architectural Engineering",
-    focus: "Scalable Foundations",
-    description: "We transform complex business logic into modular and sustainable system architectures that remain resilient under high traffic.",
-    tech: ["Microservices", "Event-Driven", "Cloud-Native"]
-  },
-  {
-    id: "02",
-    slug: "experience-design",
-    title: "Experience Design",
-    focus: "Cognitive Interfaces",
-    description: "We treat design not just as aesthetics, but as interaction engineering driven by user psychology and data-driven insights.",
-    tech: ["UX Research", "Design Systems", "Interaction"]
-  },
-  {
-    id: "03",
-    slug: "intelligence-systems",
-    title: "Intelligence Systems",
-    focus: "LLM & Automation",
-    description: "We integrate AI not as an 'add-on', but as a core capability that automates your business processes and decision-making.",
-    tech: ["Custom LLMs", "RAG", "Workflow Automation"]
-  },
-  {
-    id: "04",
-    slug: "performance-edge",
-    title: "Performance & Edge",
-    focus: "Zero Latency",
-    description: "In a world where milliseconds turn into revenue, we optimize your systems to run at peak speed across the global edge.",
-    tech: ["Edge Computing", "WASM", "Core Web Vitals"]
-  }
+const slugs = [
+  "architectural-engineering",
+  "experience-design",
+  "intelligence-systems",
+  "performance-edge"
 ];
 
+const ids = ["01", "02", "03", "04"];
+
 export const Disciplines = () => {
+  const { t } = useTranslation();
+
+  const disciplines = [
+    {
+      id: ids[0],
+      slug: slugs[0],
+      title: t('disciplines.items.0.title'),
+      focus: t('disciplines.items.0.focus'),
+      description: t('disciplines.items.0.description'),
+      tech: t('disciplines.items.0.tech', { returnObjects: true }) as string[]
+    },
+    {
+      id: ids[1],
+      slug: slugs[1],
+      title: t('disciplines.items.1.title'),
+      focus: t('disciplines.items.1.focus'),
+      description: t('disciplines.items.1.description'),
+      tech: t('disciplines.items.1.tech', { returnObjects: true }) as string[]
+    },
+    {
+      id: ids[2],
+      slug: slugs[2],
+      title: t('disciplines.items.2.title'),
+      focus: t('disciplines.items.2.focus'),
+      description: t('disciplines.items.2.description'),
+      tech: t('disciplines.items.2.tech', { returnObjects: true }) as string[]
+    },
+    {
+      id: ids[3],
+      slug: slugs[3],
+      title: t('disciplines.items.3.title'),
+      focus: t('disciplines.items.3.focus'),
+      description: t('disciplines.items.3.description'),
+      tech: t('disciplines.items.3.tech', { returnObjects: true }) as string[]
+    }
+  ];
+
   return (
     <section id="disciplines" className="py-32 bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start mb-32 gap-12">
           <div className="max-w-2xl">
-            <span className="text-xs tracking-[0.5em] uppercase opacity-40 mb-6 block">01 / Expertise</span>
+            <span className="text-xs tracking-[0.5em] uppercase opacity-40 mb-6 block">{t('disciplines.label')}</span>
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-none">
-              THE <br />DISCIPLINES.
+              {t('disciplines.title1')} <br />{t('disciplines.title2')}
             </h2>
           </div>
           <div className="md:max-w-xs pt-4">
             <p className="text-background/60 text-sm leading-relaxed border-l border-background/20 pl-6">
-              Peek is a specialized technology house that approaches your digital products with rigorous engineering discipline, moving beyond the standard agency model.
+              {t('disciplines.description')}
             </p>
           </div>
         </div>
@@ -72,7 +84,7 @@ export const Disciplines = () => {
                       {item.title}
                     </h3>
                     <span className="text-[10px] uppercase tracking-[0.3em] opacity-40 mt-2 block">
-                      Focus: {item.focus}
+                      {t('disciplines.focusLabel')}: {item.focus}
                     </span>
                   </div>
                 </div>
@@ -82,9 +94,9 @@ export const Disciplines = () => {
                     {item.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {item.tech.map(t => (
-                      <span key={t} className="text-[9px] uppercase tracking-widest border border-background/20 px-2 py-1">
-                        {t}
+                    {item.tech.map(techItem => (
+                      <span key={techItem} className="text-[9px] uppercase tracking-widest border border-background/20 px-2 py-1">
+                        {techItem}
                       </span>
                     ))}
                   </div>

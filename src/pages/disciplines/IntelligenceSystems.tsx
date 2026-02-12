@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { Brain, Cpu, Network, Terminal, ArrowLeft, Sparkles, Zap, Database, Fingerprint, Eye, Search, Activity, Target, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const NeuralPath = ({ delay = 0 }) => (
   <motion.path
@@ -56,6 +57,7 @@ const CapabilityNode = ({ title, desc, icon: Icon, index }) => {
 };
 
 export const IntelligenceSystems = () => {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -70,12 +72,12 @@ export const IntelligenceSystems = () => {
       {/* Navigation */}
       <div className="fixed top-32 left-0 w-full z-50 mix-blend-difference">
         <div className="max-w-7xl mx-auto px-6">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="inline-flex items-center gap-4 text-[10px] font-bold tracking-[0.5em] uppercase opacity-40 hover:opacity-100 transition-all group"
           >
             <div className="w-8 h-[1px] bg-white origin-left group-hover:scale-x-150 transition-transform" />
-            Back to Origin
+            {t('intSystems.backToOrigin')}
           </Link>
         </div>
       </div>
@@ -89,10 +91,10 @@ export const IntelligenceSystems = () => {
             className="mb-12"
           >
             <span className="px-6 py-2 border border-white/10 rounded-full text-[10px] tracking-[0.5em] uppercase bg-white/5 backdrop-blur-2xl">
-              Cognitive Architecture v4.0
+              {t('intSystems.cognitiveArch')}
             </span>
           </motion.div>
-          
+
           <h1 className="text-[14vw] font-black tracking-tighter leading-[0.75] uppercase">
             INTELLI<br />
             <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.5)' }}>GENCE</span><br />
@@ -101,9 +103,9 @@ export const IntelligenceSystems = () => {
 
           <div className="mt-20 grid grid-cols-3 gap-12 max-w-3xl mx-auto">
             {[
-              { label: "Neural Density", val: "99.2%" },
-              { label: "Synaptic Speed", val: "14ms" },
-              { label: "Logic Layers", val: "1,024" }
+              { label: t('intSystems.neuralDensity'), val: "99.2%" },
+              { label: t('intSystems.synapticSpeed'), val: "14ms" },
+              { label: t('intSystems.logicLayers'), val: "1,024" }
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-[8px] uppercase tracking-[0.4em] opacity-30 mb-2">{stat.label}</div>
@@ -129,29 +131,29 @@ export const IntelligenceSystems = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
             <div className="relative">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 className="space-y-12"
               >
                 <h2 className="text-7xl font-bold tracking-tighter uppercase leading-none">
-                  Beyond <br />
-                  <span className="italic font-light opacity-40">Automation.</span>
+                  {t('intSystems.beyondTitle1')} <br />
+                  <span className="italic font-light opacity-40">{t('intSystems.beyondTitle2')}</span>
                 </h2>
                 <p className="text-2xl text-white/40 leading-relaxed font-light max-w-xl">
-                  Sadece kod yazmıyoruz; düşünen, öğrenen ve evrilen dijital organizmalar inşa ediyoruz. Veriyi bilgeliğe dönüştüren kapalı devre sistemler.
+                  {t('intSystems.beyondDesc')}
                 </p>
-                
+
                 <div className="grid grid-cols-2 gap-8">
                   <div className="p-8 border border-white/5 bg-white/[0.02] rounded-2xl">
                     <Database className="w-6 h-6 mb-6 opacity-40" />
-                    <h4 className="text-sm font-bold uppercase tracking-widest mb-2">RAG Pipeline</h4>
-                    <p className="text-xs text-white/30 leading-relaxed">Kurumsal verinizi LLM'ler için anlamlı bir hafızaya dönüştürüyoruz.</p>
+                    <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{t('intSystems.ragPipeline')}</h4>
+                    <p className="text-xs text-white/30 leading-relaxed">{t('intSystems.ragDesc')}</p>
                   </div>
                   <div className="p-8 border border-white/5 bg-white/[0.02] rounded-2xl">
                     <Fingerprint className="w-6 h-6 mb-6 opacity-40" />
-                    <h4 className="text-sm font-bold uppercase tracking-widest mb-2">Agentic AI</h4>
-                    <p className="text-xs text-white/30 leading-relaxed">Kendi kararlarını verebilen, otonom iş akışları tasarlıyoruz.</p>
+                    <h4 className="text-sm font-bold uppercase tracking-widest mb-2">{t('intSystems.agenticAi')}</h4>
+                    <p className="text-xs text-white/30 leading-relaxed">{t('intSystems.agenticDesc')}</p>
                   </div>
                 </div>
               </motion.div>
@@ -169,8 +171,8 @@ export const IntelligenceSystems = () => {
                     </div>
                     <span className="opacity-20 uppercase tracking-widest">Neural_Process_Monitor</span>
                   </div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     className="space-y-2"
@@ -180,7 +182,7 @@ export const IntelligenceSystems = () => {
                     <p className="text-white/40">{`[LOGIC] Applying semantic constraints...`}</p>
                     <div className="py-4">
                       <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                        <motion.div 
+                        <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: "74%" }}
                           transition={{ duration: 2, ease: "circOut" }}
@@ -202,18 +204,18 @@ export const IntelligenceSystems = () => {
       <section className="relative py-60 bg-white text-black overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-32">
-            <span className="text-[10px] font-mono mb-8 block opacity-40 tracking-[0.5em]">CAPABILITIES MATRIX</span>
+            <span className="text-[10px] font-mono mb-8 block opacity-40 tracking-[0.5em]">{t('intSystems.capabilitiesMatrix')}</span>
             <h3 className="text-[12vw] font-black tracking-tighter uppercase leading-[0.8]">
-              THE LOGIC<br />ENGINE.
+              {t('intSystems.logicEngineTitle')}
             </h3>
           </div>
 
           <div className="relative">
             {[
-              { title: "Custom LLMs", desc: "İşletmenizin DNA'sına uygun, özel eğitilmiş dil modelleri. Verinizi sadece saklamıyor, onu bir kurum hafızasına dönüştürüyoruz.", icon: Cpu },
-              { title: "Agentic Workflows", desc: "Kendi kararlarını verebilen otonom yazılım ajanları. İnsan müdahalesine gerek duymayan, kendi kendini optimize eden iş akışları.", icon: Network },
-              { title: "Predictive Engines", desc: "Geleceği veriden okuyan tahminleme algoritmaları. Pazar trendlerini ve kullanıcı davranışlarını gerçekleşmeden önce analiz edin.", icon: Activity },
-              { title: "Cognitive Search", desc: "Anlamsal derinliği olan akıllı arama altyapıları. Anahtar kelimelerin ötesine geçin, niyet ve bağlamı keşfedin.", icon: Search }
+              { title: t('intSystems.capabilities.0.title'), desc: t('intSystems.capabilities.0.desc'), icon: Cpu },
+              { title: t('intSystems.capabilities.1.title'), desc: t('intSystems.capabilities.1.desc'), icon: Network },
+              { title: t('intSystems.capabilities.2.title'), desc: t('intSystems.capabilities.2.desc'), icon: Activity },
+              { title: t('intSystems.capabilities.3.title'), desc: t('intSystems.capabilities.3.desc'), icon: Search }
             ].map((item, i) => (
               <CapabilityNode key={i} index={i} {...item} />
             ))}
@@ -234,17 +236,17 @@ export const IntelligenceSystems = () => {
             <div className="order-2 lg:order-1 relative h-[600px] group">
               <div className="absolute inset-0 flex items-center justify-center">
                 {/* Scanning Lines */}
-                <motion.div 
+                <motion.div
                   animate={{ y: [-200, 200] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                   className="absolute w-full h-px bg-gradient-to-r from-transparent via-white/40 to-transparent z-20"
                 />
-                
+
                 {/* Layer Stack */}
                 {[...Array(5)].map((_, i) => (
                   <motion.div
                     key={i}
-                    style={{ 
+                    style={{
                       y: useTransform(scrollYProgress, [0.6, 1], [i * 80, i * -40]),
                       rotateX: 45,
                       rotateZ: -10,
@@ -261,12 +263,12 @@ export const IntelligenceSystems = () => {
                         </div>
                       ))}
                     </div>
-                    
+
                     {/* Layer Specific Content */}
                     {i === 0 && <Eye className="w-24 h-24 stroke-[0.5px] opacity-40" />}
                     {i === 1 && <Target className="w-32 h-32 stroke-[0.5px] opacity-20 text-blue-400" />}
                     {i === 2 && <Layers className="w-40 h-40 stroke-[0.5px] opacity-10" />}
-                    
+
                     <div className="absolute top-4 left-4 text-[8px] font-mono opacity-40 tracking-widest">
                       V_CORTEX_L0{i + 1}
                     </div>
@@ -274,26 +276,21 @@ export const IntelligenceSystems = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="order-1 lg:order-2">
               <h2 className="text-8xl font-bold tracking-tighter uppercase mb-12 leading-none">
-                Deep <br />
-                <span className="opacity-30 italic font-light">Perception.</span>
+                {t('intSystems.deepTitle1')} <br />
+                <span className="opacity-30 italic font-light">{t('intSystems.deepTitle2')}</span>
               </h2>
               <p className="text-2xl text-white/50 leading-relaxed font-light mb-12">
-                Görüntü işleme ve doğal dil işleme teknolojilerimizle, makinelerin dünyayı bir insan gibi anlamasını sağlıyoruz. Sadece veriyi değil, bağlamı görüyoruz.
+                {t('intSystems.deepDesc')}
               </p>
               <div className="space-y-8">
-                {[
-                  { label: 'Computer Vision', val: '99.8% Accuracy' },
-                  { label: 'Semantic Understanding', val: 'Context-Aware' },
-                  { label: 'Sentiment Analysis', val: 'Real-time' },
-                  { label: 'Pattern Recognition', val: 'Neural-based' }
-                ].map((tech, i) => (
+                {[0, 1, 2, 3].map((i) => (
                   <div key={i} className="group cursor-pointer">
                     <div className="flex justify-between items-end mb-2">
-                      <span className="text-sm uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-all">{tech.label}</span>
-                      <span className="text-[10px] font-mono opacity-20">{tech.val}</span>
+                      <span className="text-sm uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-all">{t(`intSystems.deepTechs.${i}.label`)}</span>
+                      <span className="text-[10px] font-mono opacity-20">{t(`intSystems.deepTechs.${i}.val`)}</span>
                     </div>
                     <div className="h-px w-full bg-white/5 group-hover:bg-white/20 transition-colors" />
                   </div>
@@ -310,10 +307,10 @@ export const IntelligenceSystems = () => {
           whileHover={{ scale: 1.05 }}
           className="inline-block cursor-pointer"
         >
-          <span className="text-[10px] tracking-[0.8em] uppercase opacity-40 mb-8 block">Evolve your business</span>
+          <span className="text-[10px] tracking-[0.8em] uppercase opacity-40 mb-8 block">{t('intSystems.ctaLabel')}</span>
           <h2 className="text-5xl md:text-8xl font-light tracking-tighter uppercase italic">
-            Ready to <br />
-            <span className="font-bold not-italic">think bigger?</span>
+            {t('intSystems.ctaTitle1')} <br />
+            <span className="font-bold not-italic">{t('intSystems.ctaTitle2')}</span>
           </h2>
         </motion.div>
       </section>

@@ -2,14 +2,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Globe, Database, Smartphone, Layout, Zap, ShieldCheck, Activity, Fingerprint, CreditCard, Terminal, Cpu, Layers, Command } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // --- MASTERPIECE 01: PEEK CORE KERNEL (Engineering) ---
 const EngineeringMasterpiece = () => {
   return (
     <div className="relative w-full h-full flex items-center justify-center bg-[#050505] overflow-hidden font-mono">
-      <div className="absolute inset-0 opacity-20" 
+      <div className="absolute inset-0 opacity-20"
            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-      
+
       <div className="relative z-10 w-full max-w-md p-8">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -31,7 +32,7 @@ const EngineeringMasterpiece = () => {
                 <span>{stat.value}{stat.suffix || '%'}</span>
               </div>
               <div className="h-[2px] w-full bg-white/5 rounded-full overflow-hidden">
-                <motion.div 
+                <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${stat.value}%` }}
                   transition={{ duration: 1.5, delay: i * 0.2 }}
@@ -44,7 +45,7 @@ const EngineeringMasterpiece = () => {
 
         <div className="mt-12 grid grid-cols-4 gap-2">
           {[...Array(12)].map((_, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               animate={{ opacity: [0.2, 0.5, 0.2] }}
               transition={{ duration: Math.random() * 2 + 1, repeat: Infinity }}
@@ -62,7 +63,7 @@ const CommerceMasterpiece = () => {
   return (
     <div className="relative w-full h-full flex items-center justify-center bg-white overflow-hidden">
       <div className="w-full max-w-sm p-8">
-        <motion.div 
+        <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           className="bg-black text-white p-8 rounded-[2rem] shadow-2xl relative overflow-hidden group"
@@ -72,7 +73,7 @@ const CommerceMasterpiece = () => {
               <CreditCard className="w-5 h-5 opacity-40" />
             </div>
           </div>
-          
+
           <div className="mb-12">
             <div className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-2">Peek Checkout</div>
             <div className="text-4xl font-bold tracking-tighter">0.4s</div>
@@ -84,7 +85,7 @@ const CommerceMasterpiece = () => {
               <span className="text-xs opacity-60">Conversion Rate</span>
               <span className="text-emerald-400 font-mono">+12.4%</span>
             </div>
-            <motion.button 
+            <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="w-full bg-white text-black py-4 rounded-xl text-xs font-bold uppercase tracking-widest"
@@ -128,15 +129,15 @@ const IntelligenceMasterpiece = () => {
   return (
     <div className="relative w-full h-full flex items-center justify-center bg-[#080808] overflow-hidden font-mono p-12">
       <div className="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
+
         {/* Left Side: The Logic Pipeline */}
         <div className="space-y-4">
           <div className="text-[10px] text-white/20 tracking-[0.4em] mb-8 uppercase">Neural_Pipeline_v4</div>
-          
+
           {steps.map((step, i) => (
-            <motion.div 
+            <motion.div
               key={step.id}
-              animate={{ 
+              animate={{
                 opacity: activeStep === i ? 1 : 0.3,
                 x: activeStep === i ? 10 : 0
               }}
@@ -145,7 +146,7 @@ const IntelligenceMasterpiece = () => {
               <div className="flex justify-between items-center">
                 <span className="text-[10px] font-bold tracking-widest text-white/80">{step.label}</span>
                 {activeStep === i && (
-                  <motion.div 
+                  <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                     className="w-3 h-3 border-t-2 border-white rounded-full"
@@ -154,7 +155,7 @@ const IntelligenceMasterpiece = () => {
               </div>
               <div className="mt-2 h-[1px] w-full bg-white/10 overflow-hidden">
                 {activeStep === i && (
-                  <motion.div 
+                  <motion.div
                     initial={{ x: '-100%' }}
                     animate={{ x: '100%' }}
                     transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -169,16 +170,16 @@ const IntelligenceMasterpiece = () => {
         {/* Right Side: The Decision Matrix & Logs */}
         <div className="flex flex-col gap-4">
           <div className="flex-1 bg-white/5 border border-white/10 rounded-lg p-6 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10" 
+            <div className="absolute inset-0 opacity-10"
                  style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-            
+
             <div className="relative z-10 h-full flex flex-col">
               <div className="text-[9px] text-white/40 mb-4 tracking-widest uppercase">Decision_Matrix</div>
               <div className="flex-1 grid grid-cols-4 gap-2">
                 {[...Array(16)].map((_, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
-                    animate={{ 
+                    animate={{
                       backgroundColor: activeStep === (i % 4) ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.02)',
                       scale: activeStep === (i % 4) ? 1.1 : 1
                     }}
@@ -193,10 +194,10 @@ const IntelligenceMasterpiece = () => {
             <div className="text-[8px] text-emerald-500/60 mb-2 tracking-widest uppercase">Live_System_Logs</div>
             <div className="space-y-1">
               {logs.map((log, i) => (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  key={i} 
+                  key={i}
                   className="text-[8px] text-white/40 whitespace-nowrap"
                 >
                   {log}
@@ -227,7 +228,7 @@ const MobileMasterpiece = () => {
 
   return (
     <div className="relative w-full h-full flex items-center justify-center bg-[#f5f5f7] overflow-hidden">
-      <motion.div 
+      <motion.div
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         className="w-[280px] h-[580px] bg-white border-[10px] border-black rounded-[3.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] overflow-hidden relative"
@@ -265,7 +266,7 @@ const MobileMasterpiece = () => {
               </div>
               <div className="h-12 flex items-end gap-1">
                 {[40, 70, 45, 90, 65, 80, 50].map((h, i) => (
-                  <motion.div 
+                  <motion.div
                     key={i}
                     initial={{ height: 0 }}
                     animate={{ height: `${h}%` }}
@@ -296,6 +297,7 @@ const MobileMasterpiece = () => {
 };
 
 const ServiceSection = ({ service, index }: { service: any, index: number }) => {
+  const { t } = useTranslation();
   const isEven = index % 2 === 0;
 
   return (
@@ -329,7 +331,7 @@ const ServiceSection = ({ service, index }: { service: any, index: number }) => 
           <Link to={service.link}>
             <button className="group flex items-center gap-4 text-sm font-bold uppercase tracking-widest">
               <span className="border-b border-foreground/20 pb-1 group-hover:border-foreground transition-colors">
-                Explore Service
+                {t('servicesPage.exploreService')}
               </span>
               <div className="w-10 h-10 rounded-full border border-foreground/10 flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all">
                 <ArrowRight className="w-4 h-4" />
@@ -347,55 +349,57 @@ const ServiceSection = ({ service, index }: { service: any, index: number }) => 
 };
 
 export const Services = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
-      category: "Engineering",
-      title: "Architectural Engineering",
-      description: "We transform complex business logic and visionary projects into modular systems that remain resilient under high traffic.",
+      category: t('servicesPage.engineering.category'),
+      title: t('servicesPage.engineering.title'),
+      description: t('servicesPage.engineering.description'),
       subServices: [
-        { name: "Bespoke Systems", icon: Zap, desc: "User-centric, custom software projects built from the ground up." },
-        { name: "CRM & ERP Solutions", icon: Layout, desc: "Enterprise management systems that digitize your business processes." },
-        { name: "DB Architecture", icon: Database, desc: "High-performance and scalable database configuration." },
-        { name: "System Integrity", icon: ShieldCheck, desc: "Bug fixes, maintenance, and system continuity optimization." }
+        { name: t('servicesPage.engineering.subServices.0.name'), icon: Zap, desc: t('servicesPage.engineering.subServices.0.desc') },
+        { name: t('servicesPage.engineering.subServices.1.name'), icon: Layout, desc: t('servicesPage.engineering.subServices.1.desc') },
+        { name: t('servicesPage.engineering.subServices.2.name'), icon: Database, desc: t('servicesPage.engineering.subServices.2.desc') },
+        { name: t('servicesPage.engineering.subServices.3.name'), icon: ShieldCheck, desc: t('servicesPage.engineering.subServices.3.desc') }
       ],
       proofComponent: <EngineeringMasterpiece />,
       link: "/services/engineering"
     },
     {
-      category: "Commerce",
-      title: "Digital Commerce & Presence",
-      description: "We transform your brand's digital storefront into high-conversion, aesthetic sales engines.",
+      category: t('servicesPage.commerce.category'),
+      title: t('servicesPage.commerce.title'),
+      description: t('servicesPage.commerce.description'),
       subServices: [
-        { name: "E-Commerce Systems", icon: Zap, desc: "Modern, fast, and secure digital commerce infrastructures." },
-        { name: "Corporate Presence", icon: Globe, desc: "Premium corporate websites reflecting brand value." },
-        { name: "Brand Management", icon: ShieldCheck, desc: "Social media and digital brand perception management." },
-        { name: "SEO Optimization", icon: Zap, desc: "Visibility and performance strategies in search engines." }
+        { name: t('servicesPage.commerce.subServices.0.name'), icon: Zap, desc: t('servicesPage.commerce.subServices.0.desc') },
+        { name: t('servicesPage.commerce.subServices.1.name'), icon: Globe, desc: t('servicesPage.commerce.subServices.1.desc') },
+        { name: t('servicesPage.commerce.subServices.2.name'), icon: ShieldCheck, desc: t('servicesPage.commerce.subServices.2.desc') },
+        { name: t('servicesPage.commerce.subServices.3.name'), icon: Zap, desc: t('servicesPage.commerce.subServices.3.desc') }
       ],
       proofComponent: <CommerceMasterpiece />,
       link: "/services/commerce"
     },
     {
-      category: "Intelligence",
-      title: "Intelligence & Automation",
-      description: "We turn data into action and manual tasks into code. We add intelligence to your systems with Peek Neural Core.",
+      category: t('servicesPage.intelligence.category'),
+      title: t('servicesPage.intelligence.title'),
+      description: t('servicesPage.intelligence.description'),
       subServices: [
-        { name: "AI Integration", icon: Cpu, desc: "Custom LLM workflows and AI-powered solutions." },
-        { name: "Workflow Automation", icon: Command, desc: "Systems that automate repetitive tasks autonomously." },
-        { name: "Data Engineering", icon: Layers, desc: "Transforming raw data into clean, actionable, and valuable information." },
-        { name: "Predictive Analytics", icon: Activity, desc: "Data-driven future projections and analytics." }
+        { name: t('servicesPage.intelligence.subServices.0.name'), icon: Cpu, desc: t('servicesPage.intelligence.subServices.0.desc') },
+        { name: t('servicesPage.intelligence.subServices.1.name'), icon: Command, desc: t('servicesPage.intelligence.subServices.1.desc') },
+        { name: t('servicesPage.intelligence.subServices.2.name'), icon: Layers, desc: t('servicesPage.intelligence.subServices.2.desc') },
+        { name: t('servicesPage.intelligence.subServices.3.name'), icon: Activity, desc: t('servicesPage.intelligence.subServices.3.desc') }
       ],
       proofComponent: <IntelligenceMasterpiece />,
       link: "/services/intelligence"
     },
     {
-      category: "Mobile",
-      title: "Mobile Engineering",
-      description: "Seamless experiences with native performance on iOS and Android platforms using Peek Mobile Framework.",
+      category: t('servicesPage.mobile.category'),
+      title: t('servicesPage.mobile.title'),
+      description: t('servicesPage.mobile.description'),
       subServices: [
-        { name: "iOS & Android", icon: Smartphone, desc: "High-performance, scalable mobile applications." },
-        { name: "Cross-Platform", icon: Smartphone, desc: "Multi-platform efficiency with a single codebase." },
-        { name: "Mobile UX", icon: Layout, desc: "Mobile-centric interaction and interface engineering." },
-        { name: "App Optimization", icon: Zap, desc: "Performance and speed enhancement for existing applications." }
+        { name: t('servicesPage.mobile.subServices.0.name'), icon: Smartphone, desc: t('servicesPage.mobile.subServices.0.desc') },
+        { name: t('servicesPage.mobile.subServices.1.name'), icon: Smartphone, desc: t('servicesPage.mobile.subServices.1.desc') },
+        { name: t('servicesPage.mobile.subServices.2.name'), icon: Layout, desc: t('servicesPage.mobile.subServices.2.desc') },
+        { name: t('servicesPage.mobile.subServices.3.name'), icon: Zap, desc: t('servicesPage.mobile.subServices.3.desc') }
       ],
       proofComponent: <MobileMasterpiece />,
       link: "/services/mobile"
@@ -407,25 +411,25 @@ export const Services = () => {
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6 border-b border-foreground/10">
         <div className="max-w-7xl mx-auto">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-[10px] font-bold tracking-[0.5em] uppercase opacity-40 mb-8 block"
           >
-            The Architectural Index
+            {t('servicesPage.label')}
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-7xl md:text-[10vw] font-bold tracking-tighter uppercase leading-[0.8] mb-12"
           >
-            Services <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: '1px currentColor' }}>& Proofs.</span>
+            {t('servicesPage.title1')} <br />
+            <span className="text-transparent" style={{ WebkitTextStroke: '1px currentColor' }}>{t('servicesPage.title2')}</span>
           </motion.h1>
-          
+
           <div className="flex flex-col md:flex-row justify-between items-end gap-8">
             <p className="max-w-xl text-xl text-foreground/50 font-light">
-              Peek is a technology partner that transforms complex problems into elegant solutions. Our expertise spans from engineering to design, intelligence to speed.
+              {t('servicesPage.description')}
             </p>
           </div>
         </div>
@@ -442,12 +446,12 @@ export const Services = () => {
       <section className="py-60 px-6 text-center relative overflow-hidden">
         <div className="relative z-10">
           <h2 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase mb-12">
-            Ready to <br />
-            <span className="italic font-light opacity-40">transcend?</span>
+            {t('servicesPage.ctaTitle1')} <br />
+            <span className="italic font-light opacity-40">{t('servicesPage.ctaTitle2')}</span>
           </h2>
           <Link to="/contact">
             <button className="bg-foreground text-background px-16 py-8 text-lg font-bold tracking-widest uppercase hover:scale-105 transition-transform">
-              Start the Partnership
+              {t('servicesPage.ctaButton')}
             </button>
           </Link>
         </div>

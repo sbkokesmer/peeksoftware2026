@@ -2,8 +2,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layers, Database, Cloud, ShieldCheck, ArrowLeft, Ruler, Box, Maximize } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const ArchitecturalEngineering = () => {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -18,12 +20,12 @@ export const ArchitecturalEngineering = () => {
       {/* Navigation */}
       <div className="fixed top-32 left-0 w-full z-50 mix-blend-difference">
         <div className="max-w-7xl mx-auto px-6">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="inline-flex items-center gap-4 text-[10px] font-bold tracking-[0.5em] uppercase opacity-40 hover:opacity-100 transition-all group text-white"
           >
             <div className="w-8 h-[1px] bg-white origin-left group-hover:scale-x-150 transition-transform" />
-            Back to Origin
+            {t('archEng.backToOrigin')}
           </Link>
         </div>
       </div>
@@ -31,21 +33,21 @@ export const ArchitecturalEngineering = () => {
       {/* Hero - Structural Blueprint */}
       <section className="relative h-screen flex items-center justify-center">
         {/* Grid Background */}
-        <div className="absolute inset-0 opacity-[0.03]" 
-             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+        <div className="absolute inset-0 opacity-[0.03]"
+             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
         />
-        
+
         <div className="relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="mb-12 flex justify-center gap-4"
           >
-            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">Precision</span>
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">{t('archEng.precision')}</span>
             <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">/</span>
-            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">Scale</span>
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">{t('archEng.scale')}</span>
             <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">/</span>
-            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">Resilience</span>
+            <span className="text-[10px] tracking-[0.5em] uppercase opacity-40">{t('archEng.resilience')}</span>
           </motion.div>
 
           <h1 className="text-[10vw] font-black tracking-tighter leading-[0.8] uppercase">
@@ -54,7 +56,7 @@ export const ArchitecturalEngineering = () => {
             ENGINEERING.
           </h1>
 
-          <motion.div 
+          <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.5, ease: "circInOut" }}
@@ -80,14 +82,14 @@ export const ArchitecturalEngineering = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32">
             <div>
               <h2 className="text-6xl font-bold tracking-tighter uppercase mb-12">
-                The Skeleton <br />of Scale.
+                {t('archEng.skeletonTitle1')} <br />{t('archEng.skeletonTitle2')}
               </h2>
               <div className="space-y-8 text-xl text-white/50 leading-relaxed">
                 <p>
-                  Karmaşık iş mantıklarını, yüksek trafik altında ezilmeyen, modüler ve sürdürülebilir sistem mimarilerine dönüştürüyoruz.
+                  {t('archEng.skeletonDesc1')}
                 </p>
                 <p>
-                  Bizim için mühendislik, sadece kod yazmak değil; bir yapının yüzyıllarca ayakta kalmasını sağlayacak temelleri atmaktır.
+                  {t('archEng.skeletonDesc2')}
                 </p>
               </div>
             </div>
@@ -115,16 +117,16 @@ export const ArchitecturalEngineering = () => {
           <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-black" />
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black" />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black" />
-          
+
           <div className="flex flex-col md:flex-row justify-between items-start gap-20">
             <div className="md:w-1/2">
               <div className="flex items-center gap-4 mb-8">
                 <Ruler className="w-5 h-5 opacity-30" />
-                <span className="text-[10px] tracking-[0.5em] uppercase font-bold">System Specifications</span>
+                <span className="text-[10px] tracking-[0.5em] uppercase font-bold">{t('archEng.systemSpecs')}</span>
               </div>
-              <h3 className="text-4xl font-bold tracking-tighter uppercase mb-8">Infrastructure as Code</h3>
+              <h3 className="text-4xl font-bold tracking-tighter uppercase mb-8">{t('archEng.infraAsCode')}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Tüm altyapıyı kodla yönetiyor, saniyeler içinde dünyanın her yerinde aynı sistemi ayağa kaldırabiliyoruz. Hata payını sıfıra indiriyoruz.
+                {t('archEng.infraDesc')}
               </p>
             </div>
             <div className="md:w-1/2 font-mono text-[12px] bg-muted p-8 rounded-sm">
